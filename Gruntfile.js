@@ -130,27 +130,27 @@ module.exports = function(grunt){
         }
       }
     }
-
   });
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-nodemon');
-  grunt.loadNpmTasks('grunt-concurrent');
+grunt.loadNpmTasks('grunt-contrib-clean');
+grunt.loadNpmTasks('grunt-contrib-jshint');
+grunt.loadNpmTasks('grunt-contrib-less');
+grunt.loadNpmTasks('grunt-contrib-jade');
+grunt.loadNpmTasks('grunt-contrib-copy');
+grunt.loadNpmTasks('grunt-contrib-concat');
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-spirtesmith');
+grunt.loadNpmTasks('grunt-nodemon');
+grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('build:debug', 'Lint and compile', [
-    'clean', 'jshint', 'less:debug', 'jade:debug', 'copy:js_debug'
-  ]);
+grunt.registerTask('build:debug', 'Lint and compile', [
+  'clean', 'jshint', 'less:debug', 'jade:debug', 'copy:js_debug'
+]);
 
-  grunt.registerTask('build:release', 'Lint, compile, bundle, and optimize', [
-    'clean', 'jshint', 'less:release', 'jade:release', 'concat:release', 'uglify:release'
-  ]);
+grunt.registerTask('build:release', 'Lint, compile, bundle, and optimize', [
+  'clean', 'jshint', 'less:release', 'jade:release', 'concat:release', 'uglify:release'
+]);
 
-  grunt.registerTask('dev', ['build:debug', 'concurrent']);
+grunt.registerTask('dev', ['build:debug', 'concurrent']);
 };
